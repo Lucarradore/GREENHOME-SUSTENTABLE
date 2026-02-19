@@ -45,17 +45,6 @@ body{
     transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
 }
 
-.navbar .logo{
-    width: 70px;
-    height: 70px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(-8px);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-
-}
-
 .navbar.scrolled {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.88);
@@ -67,7 +56,6 @@ body{
     visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
-
 }
 
 .nav-links {
@@ -84,20 +72,11 @@ body{
     z-index: 2000;
 }
 
-.nav-backdrop{
-    display: none !important;
-}
-
 .nav-links > li {
     position: relative;
     margin: 0 15px;
     display: flex;
     align-items: center;
-}
-.has-submenu > a::after {
-    content: "▾";
-    margin-left: 6px;
-    font-size: 12px;
 }
 
 .nav-links > li > a {
@@ -120,71 +99,6 @@ body{
 .nav-links > li > a:hover {
     color: var(--accent);
     text-decoration: none;
-}
-
-.submenu {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-    list-style: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: max-content;
-    min-width: 220px;
-    height: auto;
-    margin: 0;
-    padding: 16px 14px;
-
-    background: rgb(0, 0, 0);
-    display: none;
-    grid-template-rows: repeat(3, auto);
-    align-items: center;
-    text-align: center;
-    color: var(--text-light);
-    z-index: 1200;
-}
-
-.submenu li {
-    margin: 0;
-    display: flex;
-    min-width: 0;
-}
-
-.submenu li + li {
-    margin-top: 10px;
-}
-
-.submenu a {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 0 14px;
-    color: var(--text-light);
-    text-decoration: none;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 14px;
-}
-
-.submenu a:hover {
-    color: var(--accent);
-    text-decoration: none;
-}
-
-.has-submenu:hover .submenu,
-.has-submenu:focus-within .submenu {
-    display: block;
-}
-
-.has-submenu {
-    padding-bottom: 0;
 }
 
 .swiper {
@@ -341,7 +255,7 @@ body{
     font-size: 16px;
     border-radius: 30px;
     border: 1px solid #ffffff;
-    transition: background-color 0.7s, border 0.3s;
+    transition: background-color 0.3s, border 0.3s;
     cursor: pointer;
     pointer-events: auto;
 }
@@ -365,8 +279,6 @@ body{
     z-index: 1;
     pointer-events: none;
 }
-
-
 
 #beneficios {
     padding: 50px 20px;
@@ -545,6 +457,7 @@ body{
 .testimonial {
     background: var(--white);
     color: var(--text-light);
+    border: 1px solid rgba(44, 62, 80, 0.08);
     border-radius: 16px;
     padding: 20px;
     text-align: center;
@@ -556,6 +469,13 @@ body{
     justify-content: center;
     min-height: 220px;
     margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-4px);
+    border-color: rgba(39, 174, 96, 0.35);
+    box-shadow: 0 12px 24px rgba(44, 62, 80, 0.14);
 }
 
 .testimonial img {
@@ -590,140 +510,8 @@ footer {
     margin-bottom: 0;
 }
 
-footer p {
-    margin: 10px 0;
-    font-size: 16px;
-}
-
-.footer{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: start;
-    gap: 28px;
-    text-align: left;
-    padding: 68px 24px 16px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-@media (max-width: 992px) {
-    .footer {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 640px) {
-    .footer {
-        grid-template-columns: 1fr;
-    }
-}
-
-.footer p {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--text-light);
-    margin: 0;
-    font-size: 16px;
-}
-
-.footer-col{
-    width: 100%;
-    min-width: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.5;
-    box-sizing: border-box;
-}
-
-.footer-col:first-child {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    line-height: 1.4;
-}
-
-.footer-logo {
-    width: 120px;
-    height: auto;
-    display: block;
-    margin-bottom: 10px;
-}
-
-
-.footer-description {
-    grid-column: 1 / -1;
-    width: 100%;
-    text-align: center;
-    font-size: 10px;
-    color: var(--text-light);
-    margin-top: 4px;
-}
-
-.footer-col h3{
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
-    font-size: 20px;
-    color: var(--text-dark);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.footer-col ul{
-    list-style: none;
-    padding: 0;
-}
-
-.footer-col ul li{
-    margin-bottom: 10px;
-}
-
-.footer-col ul li a{
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.footer-col ul li a:hover{
-    text-decoration: underline;
-}
-
-.footer > .footer-copy {
-    grid-column: 1 / -1;
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(44, 62, 80, 0.2);
-}
-
-.scroll-reveal {
-    opacity: 0;
-    --reveal-x: 0px;
-    --reveal-y: 22px;
-    transform: translate(var(--reveal-x), var(--reveal-y));
-    transition: opacity 0.65s ease, transform 0.65s ease;
-    will-change: opacity, transform;
-}
-
-.scroll-reveal.reveal-left {
-    --reveal-x: -28px;
-    --reveal-y: 0px;
-}
-
-.scroll-reveal.reveal-right {
-    --reveal-x: 28px;
-    --reveal-y: 0px;
-}
-
-.scroll-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+body footer .footer .footer-col ul li a:hover {
+    color: #ffffff;
 }
 
 @media (max-width: 1024px) {
@@ -922,16 +710,6 @@ footer p {
 
     .footer {
         padding: 52px 16px 16px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .scroll-reveal {
-        opacity: 1;
-        --reveal-x: 0px;
-        --reveal-y: 0px;
-        transform: none;
-        transition: none;
     }
 }
 

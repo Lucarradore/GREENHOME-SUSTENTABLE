@@ -1,6 +1,3 @@
-// =========================
-// SWIPER HERO
-// =========================
 if (typeof Swiper !== "undefined" && document.querySelector(".mySwiper")) {
   new Swiper(".mySwiper", {
     initialSlide: 0,
@@ -22,9 +19,7 @@ if (typeof Swiper !== "undefined" && document.querySelector(".mySwiper")) {
   });
 }
 
-// =========================
 // NAVBAR SCROLL
-// =========================
 const navbar = document.querySelector(".navbar");
 
 if (navbar) {
@@ -40,9 +35,7 @@ if (navbar) {
   window.addEventListener("scroll", updateNavbarOnScroll, { passive: true });
 }
 
-// =========================
 // MENÚ MOBILE
-// =========================
 const mobileNavbar = window.matchMedia("(max-width: 900px)");
 const navbars = document.querySelectorAll(".navbar");
 
@@ -106,7 +99,6 @@ navbars.forEach((bar) => {
     }
   });
 
-  // 🔥 PARTE IMPORTANTE CORREGIDA
   navLinks.addEventListener("click", (event) => {
     if (!mobileNavbar.matches) return;
 
@@ -120,12 +112,11 @@ navbars.forEach((bar) => {
     const isParentTrigger =
       !!listItem && listItem.querySelector(":scope > a") === link;
 
-    // Si es padre con submenu
     if (isParentTrigger) {
       const isOpen = listItem.classList.contains("submenu-open");
 
       if (!isOpen) {
-        event.preventDefault(); // solo prevenimos para abrir submenu
+        event.preventDefault(); 
         navLinks
           .querySelectorAll(".has-submenu.submenu-open")
           .forEach((item) => item.classList.remove("submenu-open"));
@@ -135,7 +126,6 @@ navbars.forEach((bar) => {
       }
     }
 
-    // Para links normales → dejamos que el navegador redirija solo
     closeMenu();
   });
 
@@ -146,9 +136,80 @@ navbars.forEach((bar) => {
   });
 });
 
-// =========================
+// BENEFICIOS (DESKTOP)
+const benefitsContainer = document.querySelector(".benefits");
+const benefitCards = document.querySelectorAll(".benefit");
+const desktopBenefitsQuery = window.matchMedia("(min-width: 1025px)");
+
+if (benefitsContainer && benefitCards.length > 0) {
+  const benefitImages = [
+    "benefit.jpg",
+    "benefit1.png",
+    "benefit2.jpg",
+    "benefit3.jpg",
+    "benefit4.png",
+  ];
+  const benefitCssPathPrefix = "../assets/";
+
+  let imageIndex = 0;
+  let lastHoveredCard = null;
+  const listeners = [];
+
+  const setDesktopImage = (index) => {
+    benefitsContainer.style.setProperty(
+      "--benefits-image",
+      `url("${benefitCssPathPrefix}${benefitImages[index]}")`
+    );
+  };
+
+  const clearDesktopListeners = () => {
+    listeners.forEach(({ card, handler }) => {
+      card.removeEventListener("mouseenter", handler);
+    });
+    listeners.length = 0;
+  };
+
+  const enableDesktopBenefits = () => {
+    clearDesktopListeners();
+    imageIndex = 0;
+    lastHoveredCard = null;
+    setDesktopImage(0);
+
+    benefitCards.forEach((card) => {
+      const handler = () => {
+        if (card === lastHoveredCard) {
+          return;
+        }
+
+        imageIndex = (imageIndex + 1) % benefitImages.length;
+        setDesktopImage(imageIndex);
+        lastHoveredCard = card;
+      };
+
+      card.addEventListener("mouseenter", handler);
+      listeners.push({ card, handler });
+    });
+  };
+
+  const disableDesktopBenefits = () => {
+    clearDesktopListeners();
+    benefitsContainer.style.removeProperty("--benefits-image");
+  };
+
+  const syncBenefitsByViewport = () => {
+    if (desktopBenefitsQuery.matches) {
+      enableDesktopBenefits();
+    } else {
+      disableDesktopBenefits();
+    }
+  };
+
+  syncBenefitsByViewport();
+
+  desktopBenefitsQuery.addEventListener("change", syncBenefitsByViewport);
+}
+
 // SCROLL REVEAL
-// =========================
 const prefersReducedMotion =
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

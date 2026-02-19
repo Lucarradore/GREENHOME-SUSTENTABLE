@@ -2,7 +2,7 @@
 
 Sitio web corporativo para una empresa de soluciones de energía solar.
 
-## 📌 Descripción
+## Descripción
 
 Este proyecto es una web estática desarrollada con **HTML, CSS y JavaScript** para mostrar servicios, proyectos, información institucional y vías de contacto de GreenHome Sustentable.
 
@@ -13,7 +13,7 @@ Incluye:
 - Páginas de servicios, proyectos, contacto, aviso legal y política de privacidad.
 - Archivos SEO básicos (`robots.txt` y `sitemap.xml`).
 
-## 🧱 Estructura del proyecto
+## Estructura del proyecto
 
 ```text
 .
@@ -40,7 +40,7 @@ Incluye:
 	└── script.js
 ```
 
-## 🚀 Cómo ejecutar el proyecto
+## Cómo ejecutar el proyecto
 
 Como es un sitio estático, podés abrirlo directamente en el navegador:
 
@@ -48,14 +48,14 @@ Como es un sitio estático, podés abrirlo directamente en el navegador:
 
 Opcional (recomendado para desarrollo): usar un servidor local en VS Code (por ejemplo, Live Server) para evitar problemas de rutas/caché.
 
-## 🎨 Estilos y comportamiento
+## Estilos y comportamiento
 
 - Los estilos globales de la home están en `css/style.css`.
 - Los estilos compartidos de navbar/footer responsive están en `css/common-layout.css`.
 - Cada página interna tiene su CSS específico en la carpeta `css/`.
 - La lógica de interacciones (swiper, navbar responsive, animaciones) está en `js/script.js`.
 
-## 📱 Responsive
+## Responsive
 
 El proyecto incluye diseño adaptable para desktop, tablet y mobile, con especial foco en:
 
@@ -63,12 +63,12 @@ El proyecto incluye diseño adaptable para desktop, tablet y mobile, con especia
 - Reorganización de contenidos en secciones principales.
 - Ajustes visuales en cards y tipografía para pantallas pequeñas.
 
-## 🔎 SEO básico
+## SEO básico
 
 - `robots.txt`: directivas para crawlers.
 - `sitemap.xml`: mapa de URLs del sitio.
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - HTML5
 - CSS3
@@ -76,7 +76,7 @@ El proyecto incluye diseño adaptable para desktop, tablet y mobile, con especia
 - [Swiper](https://swiperjs.com/) (slider en la home)
 - Font Awesome (iconografía)
 
-## 📄 Licencia
+## Licencia
 
 Uso interno / proyecto académico-comercial (ajustar según corresponda).
 

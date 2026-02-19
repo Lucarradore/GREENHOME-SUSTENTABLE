@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="./assets/logo-navegador.png">
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/logo-navegador.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/logo-navegador.png">
+    <link rel="preload" as="image" href="./assets/proyecto1.jpg">
     <link rel="stylesheet" href="./css/projects.css">
     <link rel="stylesheet" href="./css/common-layout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -37,8 +38,6 @@
             </ul>
 </nav>
 
-
-
 <div class="proyectos">
     <h1>PROYECTOS REALIZADOS</h1>
     <p>En GreenHome Sustentable, nos enorgullece mostrar algunos de nuestros proyectos más destacados. Cada proyecto refleja nuestro compromiso con la sostenibilidad y la eficiencia energética.</p>
@@ -55,7 +54,7 @@
         </div>
 
         <div class="proyecto">
-            <img src="./assets/proyecto2.jpg" alt="Proyecto 2" loading="lazy" decoding="async" width="380" height="700">
+            <img src="./assets/proyecto2.jpg" alt="Proyecto 2" loading="lazy" fetchpriority="low" decoding="async" width="380" height="700">
             <div class="proyecto-info">
                 <h3>Empresa López</h3>
                 <p>Rosario, Argentina</p>
@@ -66,7 +65,7 @@
         </div>
 
         <div class="proyecto">
-            <img src="./assets/proyecto3.jpg" alt="Proyecto 3" loading="lazy" decoding="async" width="380" height="700">
+            <img src="./assets/proyecto3.jpg" alt="Proyecto 3" loading="lazy" fetchpriority="low" decoding="async" width="380" height="700">
             <div class="proyecto-info">
                 <h3>Escuela San Juan</h3>
                 <p>Mendoza, Argentina</p>
@@ -77,7 +76,7 @@
         </div>
 
         <div class="proyecto">
-            <img src="./assets/proyecto4.jpg" alt="Proyecto 4" loading="lazy" decoding="async" width="380" height="700">
+            <img src="./assets/proyecto4.jpg" alt="Proyecto 4" loading="lazy" fetchpriority="low" decoding="async" width="380" height="700">
             <div class="proyecto-info">
                 <h3>Hotel Sol</h3>
                 <p>Mar del Plata, Argentina</p>
@@ -88,7 +87,7 @@
         </div>
 
         <div class="proyecto">
-            <img src="./assets/proyecto5.jpg" alt="Proyecto 5" loading="lazy" decoding="async" width="380" height="700">
+            <img src="./assets/proyecto5.jpg" alt="Proyecto 5" loading="lazy" fetchpriority="low" decoding="async" width="380" height="700">
             <div class="proyecto-info">
                 <h3>Finca Verde</h3>
                 <p>Salta, Argentina</p>
@@ -99,7 +98,7 @@
         </div>
 
         <div class="proyecto">
-            <img src="./assets/proyecto6.jpg" alt="Proyecto 6" loading="lazy" decoding="async" width="380" height="700">
+            <img src="./assets/proyecto6.jpg" alt="Proyecto 6" loading="lazy" fetchpriority="low" decoding="async" width="380" height="700">
             <div class="proyecto-info">
                 <h3>Centro Comunitario</h3>
                 <p>Buenos Aires, Argentina</p>
@@ -109,8 +108,6 @@
             </div>
         </div>
     </div>
-
-        <!--Cards que digan los pasos para hacer la instalacion de los paneles-->
         <div class="metodologia">
             <h2>NUESTRA METODOLOGÍA DE TRABAJO</h2>
             <div class="pasos">
@@ -144,8 +141,6 @@
         </div>
 </div>
 
-
-
 <footer>
     <div class="footer">
         <div class="footer-col">
@@ -176,7 +171,6 @@
             <ul>
                 <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
                 <li><a href="aviso-legal.html">Aviso Legal</a></li>
-                <!-- <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li> -->
             </ul>
         </div>
         <p class="footer-description">Soluciones de energía solar para hogares y empresas en Córdoba.</p>
