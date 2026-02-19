@@ -99,9 +99,10 @@ body{
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
-    padding: 90px 20px 16px;
+    padding: 90px clamp(16px, 4vw, 28px) 16px;
     max-width: 1280px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .servicios h2 {
@@ -138,19 +139,19 @@ body{
 }
 
 .servicio:nth-of-type(1) {
-    --service-image: url("../assets/service-installation.jpg");
+    --service-image: url("../assets/service-installation.webp");
 }
 
 .servicio:nth-of-type(2) {
-    --service-image: url("../assets/service-mantenimiento.jpg");
+    --service-image: url("../assets/service-mantenimiento.webp");
 }
 
 .servicio:nth-of-type(3) {
-    --service-image: url("../assets/service-analisis.jpg");
+    --service-image: url("../assets/service-analisis.webp");
 }
 
 .servicio:nth-of-type(4) {
-    --service-image: url("../assets/service-storage.jpg");
+    --service-image: url("../assets/service-storage.webp");
 }
 
 .servicio:first-of-type {
@@ -228,6 +229,15 @@ body{
     border-color: transparent;
     -webkit-background-clip: padding-box, text;
     background-clip: padding-box, text;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .servicio button,
+    .servicio .consultar-btn {
+        background: #ffffff;
+        color: rgba(0, 0, 0, 0.78);
+        border-color: transparent;
+    }
 }
 
 .servicio ul {
@@ -310,6 +320,26 @@ footer {
     }
 }
 
+@media (max-width: 900px) {
+    .servicios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding-top: 82px;
+        gap: 14px;
+    }
+
+    .servicio:first-of-type {
+        grid-column: 1 / -1;
+    }
+
+    .servicio-overlay h3 {
+        font-size: 20px;
+    }
+
+    .servicio-overlay p {
+        font-size: 14px;
+    }
+}
+
 
 @media (max-width: 768px) {
     .servicios {
@@ -361,7 +391,7 @@ footer {
 
     .servicios {
         grid-template-columns: 1fr;
-        padding: 70px 14px 16px;
+        padding: 70px clamp(14px, 4vw, 20px) 16px;
     }
 
     .servicio:first-of-type .servicio-media {

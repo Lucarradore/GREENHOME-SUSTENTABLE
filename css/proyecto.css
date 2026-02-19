@@ -100,7 +100,8 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 20px clamp(16px, 4vw, 28px);
+    box-sizing: border-box;
 }
 
 .proyectos p {
@@ -133,9 +134,9 @@ body{
     position: relative;
     overflow: hidden;
     border-radius: 12px;
-    margin: 15px;
+    margin: 0;
     padding: 0;
-    width: 380px;
+    width: min(100%, 380px);
     text-align: left;
     content-visibility: auto;
     contain-intrinsic-size: 700px 380px;
@@ -191,6 +192,38 @@ body{
     pointer-events: auto;
 }
 
+@media (max-width: 1366px), (max-height: 820px), (hover: none), (pointer: coarse) {
+    .proyecto-info p:nth-of-type(n + 2),
+    .proyecto .ver-servicios {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+    }
+
+    .proyecto.is-visible .proyecto-info p:nth-of-type(n + 2),
+    .proyecto.is-visible .ver-servicios {
+        opacity: 1;
+        max-height: 80px;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .proyecto .ver-servicios {
+        background: var(--accent) !important;
+        border-color: var(--accent) !important;
+        color: var(--text-dark) !important;
+    }
+
+    .oferta button {
+        background: var(--accent) !important;
+        border-color: var(--accent) !important;
+        color: var(--text-dark) !important;
+    }
+}
+
 .proyecto .ver-servicios {
     display: inline-flex;
     align-items: center;
@@ -237,7 +270,8 @@ body{
     justify-content: center;
 
     align-items: center;
-    padding: 50px 20px;
+    padding: 50px clamp(16px, 4vw, 28px);
+    box-sizing: border-box;
 }
 
 .metodologia h2 {
@@ -287,7 +321,6 @@ body{
     text-align: center;
 }
 
-
 .oferta img {
     width: 100%;
     max-width: none;
@@ -305,8 +338,9 @@ body{
     align-items: center;
     width: 100vw;
     max-width: none;
-    margin: 10px calc(40% - 60vw) 0;
+    margin: 10px calc(50% - 50vw) 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .oferta h2 {
@@ -397,8 +431,27 @@ footer {
         font-size: 34px;
     }
 
+    .metodologia h2 {
+        width: 100%;
+        text-align: center;
+    }
+
     .oferta h2 {
         font-size: 24px;
+    }
+}
+
+@media (max-width: 900px) {
+    .proyecto img {
+        height: 560px;
+    }
+
+    .paso {
+        width: min(46%, 280px);
+    }
+
+    .oferta h2 {
+        width: min(92%, 700px);
     }
 }
 
@@ -460,7 +513,7 @@ footer {
     }
 
     .proyectos {
-        padding: 12px;
+        padding: 12px clamp(14px, 4vw, 20px);
     }
 
     .proyectos h1 {
@@ -468,7 +521,7 @@ footer {
     }
 
     .metodologia {
-        padding: 32px 10px;
+        padding: 32px clamp(14px, 4vw, 20px);
     }
 
     .oferta h2 {

@@ -11,6 +11,15 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -20,6 +29,7 @@ html {
 .navbar .logo {
   width: 70px;
   height: 70px;
+  cursor: pointer;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -334,10 +344,13 @@ footer * {
   .navbar .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     left: auto;
-    transform: none;
+    transform: translateX(104%);
+    visibility: hidden;
+    pointer-events: none;
     width: min(82vw, 330px);
+    max-width: 100vw;
     height: 100dvh;
     background: var(--nav-mobile-bg);
     display: flex;
@@ -348,7 +361,7 @@ footer * {
     padding: 70px 16px 24px;
     overflow-y: auto;
     z-index: 1100;
-    transition: right 0.28s ease;
+    transition: transform 0.28s ease, visibility 0.28s ease;
   }
 
   .navbar .nav-links > li {
@@ -423,7 +436,9 @@ footer * {
   }
 
   .navbar.menu-open .nav-links {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .navbar.menu-open .nav-close {
@@ -463,6 +478,23 @@ footer * {
     text-align: center;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .section-indicator {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: 8px;
+    max-width: calc(100vw - 18px);
+    font-size: 10px;
+    padding: 6px 9px;
+  }
+
+  .section-indicator.is-hidden {
+    opacity: 0;
+    transform: translate(-50%, 8px);
   }
 }
 

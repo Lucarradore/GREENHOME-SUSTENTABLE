@@ -96,6 +96,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 18px clamp(16px, 4vw, 28px);
+    box-sizing: border-box;
 }
 
 .contacto-section {
@@ -236,6 +238,14 @@ body{
     border: 2px solid black;
 }
 
+@media (hover: none), (pointer: coarse) {
+    .contacto form button {
+        background: transparent;
+        color: black;
+        border: 2px solid black;
+    }
+}
+
 .contacto .info {
     margin-top: 30px;
     text-align: center;
@@ -302,10 +312,26 @@ footer {
     }
 }
 
+@media (max-width: 900px) {
+    .contacto-section {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .card-contacto,
+    .map-container {
+        max-width: 640px;
+    }
+
+    .contacto h1 {
+        font-size: 32px;
+    }
+}
+
 
 @media (max-width: 768px) {
     .contacto {
-        padding: 20px 10px;
+        padding: 20px clamp(14px, 4vw, 22px);
     }
 
     .contacto form {
@@ -356,7 +382,7 @@ footer {
     }
 
     .card-contacto {
-        padding: 10px;
+        padding: 10px 0;
     }
 
     .map-container iframe {

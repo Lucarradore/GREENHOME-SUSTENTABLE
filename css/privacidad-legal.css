@@ -18,14 +18,15 @@ body {
 .legal {
     max-width: 900px;
     margin: 80px auto;
-    padding: 20px;
+  padding: 20px clamp(16px, 4vw, 28px);
+  box-sizing: border-box;
     line-height: 1.6;
 }
 
 @media (max-width: 1024px) {
   .legal {
     margin: 56px auto;
-    padding: 18px;
+    padding: 18px clamp(14px, 4vw, 24px);
   }
 
   .legal h1 {
@@ -40,7 +41,7 @@ body {
 @media (max-width: 640px) {
   .legal {
     margin: 34px auto;
-    padding: 14px;
+    padding: 14px clamp(12px, 4vw, 18px);
   }
 
   .legal h1 {

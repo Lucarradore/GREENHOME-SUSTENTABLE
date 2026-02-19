@@ -35,6 +35,50 @@ if (navbar) {
   window.addEventListener("scroll", updateNavbarOnScroll, { passive: true });
 }
 
+// LOGO COMO BOTÓN A INICIO
+const logoNodes = document.querySelectorAll(".navbar .logo");
+
+logoNodes.forEach((logo) => {
+  if (!(logo instanceof HTMLElement)) return;
+
+  const navigateHome = (event) => {
+    if (event) event.preventDefault();
+
+    const currentPath =
+      window.location.pathname.split("/").filter(Boolean).pop()?.toLowerCase() ||
+      "index.html";
+
+    if (currentPath === "index.html") {
+      const homeSection = document.getElementById("inicio");
+      if (homeSection) {
+        homeSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      if (window.location.hash !== "#inicio") {
+        history.replaceState(null, "", "#inicio");
+      }
+      return;
+    }
+
+    window.location.href = "index.html#inicio";
+  };
+
+  if (logo.tagName.toLowerCase() !== "a") {
+    logo.setAttribute("role", "button");
+    logo.setAttribute("tabindex", "0");
+  }
+
+  logo.setAttribute("aria-label", "Ir al inicio");
+  logo.addEventListener("click", navigateHome);
+  logo.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      navigateHome(event);
+    }
+  });
+});
+
 // MENÚ MOBILE
 const mobileNavbar = window.matchMedia("(max-width: 900px)");
 const navbars = document.querySelectorAll(".navbar");
@@ -64,7 +108,15 @@ navbars.forEach((bar) => {
     navLinks.prepend(navClose);
   }
 
-  let backdrop = bar.parentElement?.querySelector(":scope > .nav-backdrop");
+  let backdrop = bar.nextElementSibling;
+  if (!(backdrop instanceof HTMLElement) || !backdrop.classList.contains("nav-backdrop")) {
+    backdrop = null;
+  }
+
+  if (!backdrop) {
+    backdrop = bar.parentElement?.querySelector(".nav-backdrop") || null;
+  }
+
   if (!backdrop) {
     backdrop = document.createElement("div");
     backdrop.className = "nav-backdrop";
@@ -109,8 +161,11 @@ navbars.forEach((bar) => {
     if (!link || !navLinks.contains(link)) return;
 
     const listItem = link.closest(".has-submenu");
-    const isParentTrigger =
-      !!listItem && listItem.querySelector(":scope > a") === link;
+    const directAnchor =
+      listItem?.firstElementChild instanceof HTMLAnchorElement
+        ? listItem.firstElementChild
+        : null;
+    const isParentTrigger = !!listItem && directAnchor === link;
 
     if (isParentTrigger) {
       const isOpen = listItem.classList.contains("submenu-open");
@@ -275,15 +330,17 @@ if (navRoot) {
 // BENEFICIOS (DESKTOP)
 const benefitsContainer = document.querySelector(".benefits");
 const benefitCards = document.querySelectorAll(".benefit");
-const desktopBenefitsQuery = window.matchMedia("(min-width: 1025px)");
+const desktopBenefitsQuery = window.matchMedia(
+  "(min-width: 1025px) and (hover: hover) and (pointer: fine)"
+);
 
 if (benefitsContainer && benefitCards.length > 0) {
   const benefitImages = [
-    "benefit.jpg",
-    "benefit1.png",
-    "benefit2.jpg",
-    "benefit3.jpg",
-    "benefit4.png",
+    "benefit.webp",
+    "benefit1.webp",
+    "benefit2.webp",
+    "benefit3.webp",
+    "benefit4.webp",
   ];
   const benefitCssPathPrefix = "../assets/";
 
@@ -354,12 +411,17 @@ const revealTargets = document.querySelectorAll(
     "main section",
     "section",
     "article",
+    ".card-nosotros",
+    ".card-valores",
     ".benefit",
+    ".benefit-content",
     ".servicio",
+    ".servicio-media",
     ".proyecto",
+    ".proyecto img",
+    ".proyecto-info",
     ".paso",
     ".testimonial",
-    ".card-nosotros",
     ".card-valores .valor",
     ".card-contacto",
     ".contact-info",
@@ -400,8 +462,8 @@ if (revealTargets.length > 0) {
         });
       },
       {
-        threshold: 0.12,
-        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.08,
+        rootMargin: "0px 0px -6% 0px",
       }
     );
 
