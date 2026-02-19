@@ -23,8 +23,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-
-<nav class="navbar">
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+<header>
+<nav class="navbar" aria-label="Navegación principal">
             <img src="./assets/logo-green-home-removebg-preview.png" alt="GreenHome Sustentable Logo" class="logo">
             <ul class="nav-links">
                 <li class="has-submenu">
@@ -47,8 +48,10 @@
                 <li><a href="contacto.html">CONTACTO</a></li>
             </ul>
 </nav>
+</header>
 
-<div class="proyectos">
+<main id="contenido-principal">
+<section class="proyectos">
     <h1>PROYECTOS REALIZADOS</h1>
     <p>En GreenHome Sustentable, nos enorgullece mostrar algunos de nuestros proyectos más destacados. Cada proyecto refleja nuestro compromiso con la sostenibilidad y la eficiencia energética.</p>
     <div class="galeria">
@@ -122,22 +125,22 @@
             <h2>NUESTRA METODOLOGÍA DE TRABAJO</h2>
             <div class="pasos">
                 <div class="paso">
-                    <i class="fa fa-clipboard-check"></i>
+                    <i class="fa fa-clipboard-check" role="img" aria-label="Ícono de evaluación"></i>
                     <h3>Evaluación inicial</h3>
                     <p>Realizamos un análisis detallado de tus necesidades energéticas y del sitio para diseñar la mejor solución.</p>
                 </div>
                 <div class="paso">
-                    <i class="fa fa-pencil-alt"></i>
+                    <i class="fa fa-pencil-alt" role="img" aria-label="Ícono de diseño"></i>
                     <h3>Diseño personalizado</h3>
                     <p>Desarrollamos un plan de instalación a medida, optimizando el rendimiento y la eficiencia de tu sistema solar.</p>
                 </div>
                 <div class="paso">
-                    <i class="fa fa-tools"></i>
+                    <i class="fa fa-tools" role="img" aria-label="Ícono de instalación"></i>
                     <h3>Instalación profesional</h3>
                     <p>Nuestro equipo de expertos se encarga de la instalación, garantizando calidad y seguridad en cada paso.</p>
                 </div>
                 <div class="paso">
-                    <i class="fa fa-sync-alt"></i>      
+                    <i class="fa fa-sync-alt" role="img" aria-label="Ícono de mantenimiento"></i>      
                     <h3>Mantenimiento continuo</h3>
                     <p>Ofrecemos servicios de mantenimiento para asegurar que tu sistema solar funcione al máximo rendimiento.</p>
                 </div>
@@ -149,7 +152,8 @@
             <h2>¡APROVECHA NUESTRA OFERTA DEL 30% Y CONTACTANOS!</h2>
             <button onclick="window.location.href='contacto.html'">Contactar</button>
         </div>
-</div>
+</section>
+</main>
 
 <footer>
     <div class="footer">
