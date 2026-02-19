@@ -76,6 +76,12 @@ El proyecto incluye diseño adaptable para desktop, tablet y mobile, con especia
 - [Swiper](https://swiperjs.com/) (slider en la home)
 - Font Awesome (iconografía)
 
+## Deploy
+
+### Vercel
+
+- URL de producción: **pendiente**
+
 ## Licencia
 
 Uso interno / proyecto académico-comercial (ajustar según corresponda).

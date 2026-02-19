@@ -159,14 +159,17 @@ body{
 }
 
 .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.6);
+    width: 11px;
+    height: 11px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(0, 0, 0, 0.25);
     opacity: 1;
+    margin: 0 5px !important;
 }
 
 .swiper-pagination-bullet-active {
     background: #ffffff !important;
+    transform: scale(1.08);
 }
 
 .swiper-wrapper {

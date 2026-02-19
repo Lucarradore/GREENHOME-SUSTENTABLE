@@ -136,6 +136,142 @@ navbars.forEach((bar) => {
   });
 });
 
+// NAVBAR ACTIVE + INDICADOR DE SECCIÓN
+const navRoot = document.querySelector(".navbar .nav-links");
+
+if (navRoot) {
+  const navAnchors = Array.from(navRoot.querySelectorAll("a[href]"));
+  const normalizePath = (value) => {
+    try {
+      const url = new URL(value || window.location.href, window.location.href);
+      const segments = url.pathname.split("/").filter(Boolean);
+      const lastSegment = (segments[segments.length - 1] || "index.html").toLowerCase();
+      return lastSegment || "index.html";
+    } catch {
+      const clean = String(value || "").split("#")[0].trim();
+      if (!clean || clean === "/") return "index.html";
+      const segments = clean.split("/").filter(Boolean);
+      return (segments[segments.length - 1] || "index.html").toLowerCase();
+    }
+  };
+
+  const currentPage = normalizePath(window.location.href);
+  const isHomePage = currentPage === "index.html";
+
+  const setActiveNav = (targetAnchor) => {
+    navRoot.querySelectorAll(".is-active").forEach((element) => {
+      element.classList.remove("is-active");
+    });
+
+    if (!targetAnchor) return;
+
+    targetAnchor.classList.add("is-active");
+    const listItem = targetAnchor.closest("li");
+    if (listItem) {
+      listItem.classList.add("is-active");
+      const parentSubmenuItem = listItem.closest(".submenu")?.closest(".has-submenu");
+      if (parentSubmenuItem) {
+        parentSubmenuItem.classList.add("is-active");
+      }
+    }
+  };
+
+  const indicator = document.createElement("div");
+  indicator.className = "section-indicator";
+  indicator.setAttribute("aria-live", "polite");
+  indicator.textContent = "Sección: Inicio";
+  document.body.appendChild(indicator);
+
+  let hideTimer;
+
+  const normalizeLabel = (label) => {
+    const safe = label && label.trim() ? label.trim() : "inicio";
+    return safe.toLowerCase();
+  };
+
+  const setIndicator = (label) => {
+    indicator.textContent = `SECCIÓN: ${normalizeLabel(label).toUpperCase()}`;
+  };
+
+  const showIndicator = (label) => {
+    setIndicator(label);
+    indicator.classList.remove("is-hidden");
+
+    if (hideTimer) {
+      window.clearTimeout(hideTimer);
+    }
+
+    hideTimer = window.setTimeout(() => {
+      indicator.classList.add("is-hidden");
+    }, 2600);
+  };
+
+  if (!isHomePage) {
+    const pageAnchor =
+      navAnchors.find((anchor) => normalizePath(anchor.getAttribute("href") || "") === currentPage) ||
+      navAnchors.find((anchor) => normalizePath(anchor.href) === currentPage);
+
+    if (pageAnchor) {
+      setActiveNav(pageAnchor);
+      showIndicator(pageAnchor.textContent || document.title);
+    } else {
+      showIndicator(document.title);
+    }
+  } else {
+    const sectionConfig = [
+      { id: "inicio", label: "inicio" },
+      { id: "beneficios", label: "beneficios" },
+      { id: "sobreNosotros", label: "nosotros" },
+      { id: "testimonio", label: "testimonios" },
+    ];
+
+    const sectionTargets = sectionConfig
+      .map(({ id, label }) => {
+        const target = document.getElementById(id);
+        if (!target) return null;
+
+        const anchor = navAnchors.find((a) => (a.getAttribute("href") || "").includes(`#${id}`)) || null;
+        return { target, anchor, label };
+      })
+      .filter(Boolean);
+
+    const updateActiveSection = () => {
+      if (sectionTargets.length === 0) return;
+
+      const viewportPivot = window.innerHeight * 0.38;
+      let current = null;
+
+      sectionTargets.forEach((entry) => {
+        const rect = entry.target.getBoundingClientRect();
+        const isInViewBand = rect.top <= viewportPivot && rect.bottom >= viewportPivot * 0.35;
+
+        if (isInViewBand) {
+          current = entry;
+        }
+      });
+
+      if (!current) {
+        current = sectionTargets.reduce((closest, entry) => {
+          const rect = entry.target.getBoundingClientRect();
+          const distance = Math.abs(rect.top - viewportPivot);
+
+          if (!closest || distance < closest.distance) {
+            return { entry, distance };
+          }
+
+          return closest;
+        }, null)?.entry || sectionTargets[0];
+      }
+
+      setActiveNav(current.anchor);
+      showIndicator(current.label);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+  }
+}
+
 // BENEFICIOS (DESKTOP)
 const benefitsContainer = document.querySelector(".benefits");
 const benefitCards = document.querySelectorAll(".benefit");

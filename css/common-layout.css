@@ -1,5 +1,16 @@
 :root {
+  --primary: #27AE60;
+  --primary-light: #2ECC71;
+  --accent: #F4C542;
+  --background: #F4F4F4;
+  --white: #FFFFFF;
+  --text-dark: #2C3E50;
+  --text-light: #6C757D;
   --nav-mobile-bg: #0f141a;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .navbar {
@@ -16,10 +27,20 @@
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
 }
 
+.has-submenu > a {
+  position: relative;
+  padding-right: 14px;
+}
+
 .has-submenu > a::after {
   content: "▾";
-  margin-left: 6px;
+  margin-left: 0;
   font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-decoration: none;
 }
 
 .submenu {
@@ -84,6 +105,46 @@
 
 .has-submenu {
   padding-bottom: 0;
+}
+
+.nav-links a.is-active,
+.nav-links li.is-active > a {
+  color: var(--accent) !important;
+}
+
+.nav-links li.is-active > a {
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+.section-indicator {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 1300;
+  background: rgba(15, 20, 26, 0.88);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  max-width: min(92vw, 300px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.section-indicator.is-hidden {
+  opacity: 0;
+  transform: translateY(8px);
 }
 
 .navbar .nav-toggle,
@@ -316,6 +377,11 @@ footer * {
 
   .navbar .has-submenu > a::after {
     content: "▸";
+    position: static;
+    top: auto;
+    right: auto;
+    transform: none;
+    margin-left: 8px;
   }
 
   .navbar .has-submenu.submenu-open > a::after {
@@ -377,6 +443,13 @@ footer * {
 }
 
 @media (max-width: 640px) {
+  .section-indicator {
+    right: 10px;
+    bottom: 10px;
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+
   .footer {
     grid-template-columns: 1fr;
   }
