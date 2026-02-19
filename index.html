@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenHome Sustentable</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/logo-navegador.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/logo-navegador.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/logo-navegador.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/common-layout.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!--MONSERRAT FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!--PLUS JAKARTA SANS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <!--INTER-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="home">
+        <nav class="navbar">
+            <img src="./assets/logo-green-home-removebg-preview.png" alt="GreenHome Sustentable Logo" class="logo">
+            <ul class="nav-links">
+                <li class="has-submenu">
+                  <a href="index.html#inicio">INICIO</a>
+                    <ul class="submenu">
+                        <li><a href="index.html#beneficios">BENEFICIOS</a></li>
+                        <li><a href="index.html#sobreNosotros">NOSOTROS</a></li>
+                        <li><a href="index.html#testimonio">TESTIMONIOS</a></li>
+                    </ul>
+                </li>
+                <li><a href="services.html">SERVICIOS</a></li>
+                <li><a href="projects.html">PROYECTOS</a></li>
+                <li class="has-submenu">
+                    <a href="aboutUs.html">SOBRE NOSOTROS</a>
+                    <ul class="submenu">
+                        <li><a href="aviso-legal.html">AVISO LEGAL</a></li>
+                        <li><a href="politica-privacidad.html">POLITICA DE PRIVACIDAD</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">CONTACTO</a></li>
+            </ul>
+        </nav>
+
+        <div id="inicio" class="inicio">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./assets/inicio.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/inicio2.png" alt="">
+                    </div>
+                </div>
+                <button type="button" class="hero-swiper-btn hero-swiper-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                <button type="button" class="hero-swiper-btn hero-swiper-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                <div class="swiper-pagination" aria-label="Paginación"></div>
+            </div>
+
+            <div class="hero-content">
+                <h1>ENERGÍA SOLAR</h1>
+                <p>Instalación de sistemas solares residenciales</p>
+                <button onclick="window.location.href='./contact.html'">Solicitar presupuesto</button>
+            </div>
+        </div>
+
+    </section>
+    <section id="beneficios">
+        <h2>BENEFICIOS</h2>
+        <div class="benefits">
+            <div class="benefit">
+                <div class="benefit-content">
+                    <h3>Ahorro garantizado</h3>
+                    <p>Reduce hasta un 70% tu factura de electricidad.</p>
+                </div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-content">
+                    <h3>Energía limpia</h3>
+                    <p>Disminuí tu impacto ambiental con energía renovable.</p>
+                </div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-content">
+                    <h3>Inversión inteligente</h3>
+                    <p>Incrementa el valor de tu propiedad.</p>
+                </div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-content">
+                    <h3>Soporte profesional</h3>
+                    <p>Te acompañamos antes, durante y despúes de la instalación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="sobreNosotros">
+        <h2>SOBRE NOSOTROS</h2>
+        <p>En GreenHome Sustentable llevamos más de 8 años ayudando a familias y empresas a transformar su consumo energético. Nuestro equipo técnico certificado garantiza instalaciones seguras, eficientes y duraderas.</p>
+    </section>
+    <section id="testimonios" aria-label="Testimonios">
+        <a id="testimonio" aria-hidden="true"></a>
+        <h2>TESTIMONIOS</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>“Excelente servicio y atención. En 6 meses ya vimos el ahorro.”</p>
+                <p>– Mariana L.</p>
+            </div>
+            <div class="testimonial">
+                <p>“Muy profesionales. Cumplieron con todo lo prometido.”</p>
+                <p>– Carlos M.</p>
+            </div>
+            <div class="testimonial">
+                <p>"Recomendados 100%. Trabajan limpio y rápido." </p>
+                <p>– Ana G.</p>
+            </div>
+            <div class="testimonial">
+                <p>"Desde que instalamos los paneles solares, hemos visto una gran reducción en nuestras facturas."</p>
+                <p>– Luis F.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-col">
+                <img src="./assets/logo-green-home-removebg-preview.png" alt="GreenHome Sustentable Logo" class="footer-logo">
+            </div>
+
+            <div class="footer-col">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="services.html">Servicios</a></li>
+                    <li><a href="aboutUs.html">Nosotros</a></li>
+                    <li><a href="projects.html">Proyectos</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p>Av. Colón 2450, Córdoba</p>
+                <p>+54 9 351 555 1234</p>
+                <p>info@greenhome.com.ar</p>
+                <p>Lunes a Viernes 9:00 – 18:00</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="aviso-legal.html">Aviso Legal</a></li>
+                </ul>
+            </div>
+            <p class="footer-description">Soluciones de energía solar para hogares y empresas en Córdoba.</p>
+            <p class="footer-copy">© 2026 GreenHome Sustentable</p>
+        </div>
+    </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="./js/script.js"></script>
+
+</body>
+</html>

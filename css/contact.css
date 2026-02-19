@@ -1,0 +1,569 @@
+:root {
+  --primary: #27AE60;
+  --primary-light: #2ECC71;
+  --accent: #F4C542;
+
+  --background: #F4F4F4;
+  --white: #FFFFFF;
+
+  --text-dark: #2C3E50;
+  --text-light: #6C757D;
+}
+
+body{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 20px;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+.navbar .logo{
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+
+}
+
+.navbar.scrolled {
+    position: fixed;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.88);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.navbar.scrolled .logo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.nav-backdrop{
+    display: none !important;
+}
+
+.nav-links > li {
+    position: relative;
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+}
+.has-submenu > a::after {
+    content: "▾";
+    margin-left: 6px;
+    font-size: 12px;
+}
+
+.nav-links > li > a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.navbar.scrolled .nav-links > li > a {
+    color: var(--white);
+}
+
+.nav-links > li > a:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.submenu {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    min-width: 220px;
+    height: auto;
+    margin: 0;
+    padding: 16px 14px;
+
+    background: rgb(0, 0, 0);
+    display: none;
+    grid-template-rows: repeat(3, auto);
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+    z-index: 1200;
+}
+
+.submenu li {
+    margin: 0;
+    display: flex;
+    min-width: 0;
+}
+
+.submenu li + li {
+    margin-top: 10px;
+}
+
+.submenu a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 14px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.submenu a:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu {
+    display: block;
+}
+
+.has-submenu {
+    padding-bottom: 0;
+}
+
+.contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contacto-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    width: 100%;
+    max-width: 1000px;
+    margin: 24px auto 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info p {
+    margin: 8px 0;
+}
+
+.card-contacto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 420px;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 520px;
+    width: 100%;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 350px;
+    border: 0;
+    border-radius: 12px;
+}
+
+.contacto h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.contacto h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 40px;
+    color: var(--text-dark);
+}
+
+.contacto p {
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 600px;
+}
+
+
+
+.contacto form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contacto form input,
+.contacto form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+.contacto form button {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.contacto form button:hover {
+    background: transparent;
+    color: black;
+    border: 2px solid black;
+}
+
+.contacto .info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contacto .info p {
+    color: #555;
+    margin: 5px 0;
+}
+
+footer {
+    background-color: #c7c7c7;
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 56px;
+    margin-bottom: 0;
+}
+
+footer p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.footer{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 28px;
+    text-align: left;
+    padding: 68px 24px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+    .footer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        grid-template-columns: 1fr;
+    }
+}
+
+.footer p {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-light);
+    margin: 0;
+    font-size: 16px;
+}
+
+.footer-col{
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.footer-col:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.footer-logo {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.footer-description {
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    color: var(--text-light);
+    margin-top: 4px;
+}
+
+.footer-col h3{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 20px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.footer-col ul{
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li{
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-col ul li a:hover{
+    text-decoration: underline;
+}
+
+.footer > .footer-copy {
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(44, 62, 80, 0.2);
+}
+
+.scroll-reveal {
+    opacity: 0;
+    --reveal-x: 0px;
+    --reveal-y: 22px;
+    transform: translate(var(--reveal-x), var(--reveal-y));
+    transition: opacity 0.65s ease, transform 0.65s ease;
+    will-change: opacity, transform;
+}
+
+.scroll-reveal.reveal-left {
+    --reveal-x: -28px;
+    --reveal-y: 0px;
+}
+
+.scroll-reveal.reveal-right {
+    --reveal-x: 28px;
+    --reveal-y: 0px;
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1;
+        --reveal-x: 0px;
+        --reveal-y: 0px;
+        transform: none;
+        transition: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .navbar .logo,
+    .navbar.scrolled .logo {
+        width: 56px;
+        height: 56px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+    }
+
+    .nav-links {
+        position: static;
+        left: auto;
+        transform: none;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 8px;
+        column-gap: 6px;
+    }
+
+    .nav-links > li {
+        margin: 0 8px;
+    }
+
+    .nav-links > li > a {
+        font-size: 12px;
+    }
+
+    .submenu {
+        min-width: 180px;
+        padding: 10px 10px;
+    }
+
+    .contacto h1 {
+        font-size: 34px;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .contacto {
+        padding: 20px 10px;
+    }
+
+    .contacto form {
+        width: 100%;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 560px) {
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .navbar .logo,
+    .navbar.scrolled .logo {
+        width: 46px;
+        height: 46px;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-links > li {
+        flex: 0 0 auto;
+        margin: 0 6px;
+    }
+
+    .submenu {
+        left: 0;
+        transform: none;
+    }
+
+    .contacto h1 {
+        font-size: 28px;
+    }
+
+    .card-contacto {
+        padding: 10px;
+    }
+
+    .map-container iframe {
+        height: 250px;
+    }
+}
